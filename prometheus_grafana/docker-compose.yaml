@@ -14,6 +14,8 @@ services:
       - '--web.console.templates=/etc/prometheus/consoles'
       - '--storage.tsdb.retention.time=200h'
       - '--web.enable-lifecycle'
+    extra_hosts:
+      - "host.docker.internal:host-gateway" # This is used to resolve the host.docker.internal address to the host-gateway address (localhost)
     restart: unless-stopped
     networks:
       - monitoring
